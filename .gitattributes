@@ -1,0 +1,22 @@
+# JS files
+*.js text eol=crlf
+*.json text eol=crlf
+*.jsx text eol=crlf
+*.ts text eol=crlf
+
+# Stylesheets
+*.css text eol=crlf
+*.scss text eol=crlf
+
+# Markdown files
+*.md text eol=crlf
+
+# Script files
+*.sh text eol=lf
+
+# Dotfiles
+Staticfile text eol=crlf
+*.git* text eol=crlf
+.* text eol=crlf
+.editorconfig text eol=crlf
+.env* text eol=crlf

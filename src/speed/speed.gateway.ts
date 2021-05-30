@@ -14,6 +14,7 @@ export class SpeedGateway implements OnGatewayConnection, OnGatewayDisconnect {
 
   async handleConnection(client: any) {
     this.server.emit('control', 'login');
+    console.log(client.handshake.headers.origin);
     this.wsClients.push(client);
     console.log('Created new connection', client.id);
     this.broadcastClients();

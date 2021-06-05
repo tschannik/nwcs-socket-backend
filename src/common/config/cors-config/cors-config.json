@@ -4,6 +4,8 @@
     "http://localhost:8080"
   ],
   "production": [
-    "http://nwcs.apollo.yzi.ch"
+    "http://nwcs.apollo.yzi.ch",
+    "http://localhost:3000",
+    "http://localhost:8080"
   ]
 }

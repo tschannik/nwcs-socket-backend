@@ -33,7 +33,7 @@ export class SpeedGateway implements OnGatewayConnection, OnGatewayDisconnect {
   }
 
   @SubscribeMessage('pang')
-  async onPing(client: Socket) {
+  async onPong(client: Socket) {
     console.log('Recieved pang, send pong');
     client.emit('testpong');
   }

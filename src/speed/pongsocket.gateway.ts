@@ -8,7 +8,8 @@ import {
 
 import { Socket } from 'dgram';
 @WebSocketGateway()
-export class SpeedGateway implements OnGatewayConnection, OnGatewayDisconnect {
+export class PongSocketGateway
+  implements OnGatewayConnection, OnGatewayDisconnect {
   @WebSocketServer() server;
   wsClients = [];
 
@@ -32,10 +33,11 @@ export class SpeedGateway implements OnGatewayConnection, OnGatewayDisconnect {
     this.server.emit('control', 'logout');
   }
 
-  @SubscribeMessage('pang')
-  async onPong(client: Socket) {
-    console.log('Recieved pang, send pong');
-    client.emit('testpong');
+  @SubscribeMessage('Pang')
+  async onPang(client: Socket) {
+    console.log('Recieved ping, send pong');
+    await this.delay(1000);
+    client.emit('ServerPong');
   }
 
   @SubscribeMessage('sendBroadcast')
@@ -58,5 +60,9 @@ export class SpeedGateway implements OnGatewayConnection, OnGatewayDisconnect {
         this.wsClients.map(c => c.id),
       );
     }
+  }
+
+  private delay(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 }

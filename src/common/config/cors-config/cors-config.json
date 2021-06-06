@@ -1,7 +1,8 @@
 {
   "development": [
     "http://localhost:3000",
-    "http://localhost:8080"
+    "http://localhost:8080",
+    "http://localhost:5000"
   ],
   "production": [
     "http://nwcs.apollo.yzi.ch",

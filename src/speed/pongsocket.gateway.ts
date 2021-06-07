@@ -34,10 +34,10 @@ export class PongSocketGateway
   }
 
   @SubscribeMessage('Pang')
-  async onPang(client: Socket) {
-    console.log('Recieved ping, send pong');
+  async onPang(client: Socket, payload: any) {
+    console.log('Recieved ping, send pong', payload);
     await this.delay(1000);
-    client.emit('ServerPong');
+    client.emit('ServerPong', 'ServerPong');
   }
 
   @SubscribeMessage('sendBroadcast')
